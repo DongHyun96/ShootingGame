@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{98624303-2476-4418-83a8-383251a60d5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{de329763-daa1-416c-8ae2-fbce1a4ce44a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Others">
+      <UniqueIdentifier>{fb221ad8-bc09-4304-9dff-14a0ad5d4c48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{84e488f3-dcd7-4329-a1b3-8e55d1105491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\AvoidGame">
+      <UniqueIdentifier>{83e8c176-6124-4000-98b6-d9158b0e8321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{4655422c-7ef5-4cc1-a399-61a7351c6b64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Fortress">
+      <UniqueIdentifier>{58b1126f-81f0-4e2d-925e-4034fb01e6a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Arkanoid">
+      <UniqueIdentifier>{0a5eeb64-b03b-46bb-a67c-0aaf1a4e314e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{8d717192-9517-4619-bf9e-86abf68a9cc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Shooting">
+      <UniqueIdentifier>{06fb7c93-ee6f-445d-9b0b-91c25613b9de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Shooting\Enemy">
+      <UniqueIdentifier>{e9da9993-8ce4-4eed-83eb-c47f09657878}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Shooting\Player">
+      <UniqueIdentifier>{5147d6d0-ded6-46db-b613-bf91c6037928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Shooting\BackGround">
+      <UniqueIdentifier>{ce53b2fb-b8fd-4db1-b7f0-60a2547fb7b4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Framework.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PaintScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>_Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Targetver.h">
+      <Filter>_Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="AvoidScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Poo.h">
+      <Filter>GameObject\AvoidGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="FortressScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Tank.h">
+      <Filter>GameObject\Fortress</Filter>
+    </ClInclude>
+    <ClInclude Include="CannonBallManager.h">
+      <Filter>GameObject\Fortress</Filter>
+    </ClInclude>
+    <ClInclude Include="CannonBall.h">
+      <Filter>GameObject\Fortress</Filter>
+    </ClInclude>
+    <ClInclude Include="ArkanoidScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ArkaPlayer.h">
+      <Filter>GameObject\Arkanoid</Filter>
+    </ClInclude>
+    <ClInclude Include="ArkaBall.h">
+      <Filter>GameObject\Arkanoid</Filter>
+    </ClInclude>
+    <ClInclude Include="ArkaBrick.h">
+      <Filter>GameObject\Arkanoid</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ArkaBrickManager.h">
+      <Filter>GameObject\Arkanoid</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ShootingScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_EBulletManager.h">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_Enemy.h">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_EnemyBullet.h">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_PBulletManager.h">
+      <Filter>GameObject\Shooting\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_Player.h">
+      <Filter>GameObject\Shooting\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_PlayerBullet.h">
+      <Filter>GameObject\Shooting\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_EnemyManager.h">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_Background.h">
+      <Filter>GameObject\Shooting\BackGround</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PaintScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="AvoidScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Poo.cpp">
+      <Filter>GameObject\AvoidGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="FortressScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank.cpp">
+      <Filter>GameObject\Fortress</Filter>
+    </ClCompile>
+    <ClCompile Include="CannonBallManager.cpp">
+      <Filter>GameObject\Fortress</Filter>
+    </ClCompile>
+    <ClCompile Include="CannonBall.cpp">
+      <Filter>GameObject\Fortress</Filter>
+    </ClCompile>
+    <ClCompile Include="ArkanoidScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ArkaPlayer.cpp">
+      <Filter>GameObject\Arkanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="ArkaBall.cpp">
+      <Filter>GameObject\Arkanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="ArkaBrick.cpp">
+      <Filter>GameObject\Arkanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ArkaBrickManager.cpp">
+      <Filter>GameObject\Arkanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ShootingScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_EBulletManager.cpp">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_Enemy.cpp">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_EnemyBullet.cpp">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_PBulletManager.cpp">
+      <Filter>GameObject\Shooting\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_Player.cpp">
+      <Filter>GameObject\Shooting\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_PlayerBullet.cpp">
+      <Filter>GameObject\Shooting\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_EnemyManager.cpp">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_Background.cpp">
+      <Filter>GameObject\Shooting\BackGround</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Project.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Project.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="_Texture\BTS.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
