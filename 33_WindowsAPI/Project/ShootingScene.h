@@ -15,11 +15,18 @@ private:
 	// 플레이어 총알들 vs 에너미들
 	void HandleCollision(vector<Shooting_PlayerBullet*>& pBullets, vector<Shooting_Enemy*>& enemies);
 
+	// 플레이어 총알들 vs 에너미 미사일들 
+	void HandleCollision(vector<Shooting_PlayerBullet*>& pBullets, vector<Shooting_Missile*>& eMissiles);
+
 	// 에너미 총알들 vs 플레이어
 	void HandleCollision(vector<Shooting_EnemyBullet*>& eBullets, Shooting_Player* player);
 
+	// 에너미 미사일들 vs 플레이어
+	void HandleCollision(vector<Shooting_Missile*>& eMissiles, Shooting_Player* player);
+
 	// 아이템들 vs 플레이어
 	void HandleCollision(map<ItemType, vector<Shooting_Item*>>& itemMap, Shooting_Player* player);
+
 
 private:
 

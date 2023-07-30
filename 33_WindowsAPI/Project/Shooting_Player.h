@@ -1,6 +1,6 @@
 #pragma once
 
-#define PLAYER_HP_MAX 20
+#define PLAYER_HP_MAX 30
 #define WEAPON_HOLD_TIME_MAX 15.f
 
 enum Weapon_State

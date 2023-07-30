@@ -3,10 +3,10 @@ class Shooting_EnemyBullet
 {
 public:
 	Shooting_EnemyBullet(Texture* texture);
-	~Shooting_EnemyBullet();
+	virtual ~Shooting_EnemyBullet();
 
-	void Update();
-	void Render(HDC hdc);
+	virtual void Update();
+	virtual void Render(HDC hdc);
 
 	Rect* GetBody() { return body; }
 
@@ -15,13 +15,15 @@ public:
 
 	void Fire(Point startPos, float speed, Vector2 direction);
 
-private:
+	virtual void ApplyDamage();
 
-	void Move();
+protected:
+
+	virtual void Move();
 
 	void HandleBoundary();
 
-private:
+protected:
 	Rect* body = nullptr;
 	Texture* texture = nullptr;
 

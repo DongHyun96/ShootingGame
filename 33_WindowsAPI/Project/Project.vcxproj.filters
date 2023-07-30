@@ -186,6 +186,15 @@
     <ClInclude Include="Shooting_GameManager.h">
       <Filter>GameObject\Shooting\GameManager</Filter>
     </ClInclude>
+    <ClInclude Include="Shooting_Saucer.h">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_Soldier.h">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_Missile.h">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -304,6 +313,15 @@
     </ClCompile>
     <ClCompile Include="Shooting_GameManager.cpp">
       <Filter>GameObject\Shooting\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_Saucer.cpp">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_Soldier.cpp">
+      <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_Missile.cpp">
+      <Filter>GameObject\Shooting\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

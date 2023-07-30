@@ -20,7 +20,12 @@ public:
 	void UpdatePlayerWeaponState(const Weapon_State& weaponState);
 
 	void SetGameOver(const bool& isGameOver) { this->isGameOver = isGameOver; }
+	bool HasGameStart() const { return hasGameStart; }
 
+	void SetPlayerPos(const Point& pos) { playerPos = pos; }
+	Point GetPlayerPos() const { return playerPos; }
+
+	Texture* GetExplosionTexture() const { return explosionTexture; }
 
 private:
 	void RenderHpBar(HDC hdc);
@@ -28,9 +33,18 @@ private:
 	void RenderWeapon(HDC hdc);
 	void RenderGameOver(HDC hdc);
 
+	void HandleGameStart();
+	void RenderGameStart(HDC hdc);
+
+	void MoveGameOverText();
+	void HandleRenderFinish(HDC hdc, HFONT prevFont, UINT prevAlign, int prevMode);
+
 private:
 	HFONT hFont;
 	Texture* boardTexture = nullptr;
+	Point playerPos = {};
+
+	Texture* explosionTexture = nullptr;
 
 private: // player HP bar field
 
@@ -56,8 +70,16 @@ private: // player weapons field
 	UINT		 weaponTimeLeft	= WEAPON_HOLD_TIME_MAX;
 	float		 weaponTimer	= 0.f;
 
-private: // GameOver field
+private: // GameStart & GameOver field
+	bool hasGameStart = false;
 	bool isGameOver = false;
+	
+	float textSpeed = 1000.f;
 
+	Point gameTextPos		  = {0, 0};
+	Point overTextPos		  = {WIN_WIDTH, WIN_HEIGHT};
+
+	Point gameTextDestination = { WIN_WIDTH * 0.5, WIN_HEIGHT * 0.5 - 20 };
+	Point overTextDestination = { WIN_WIDTH * 0.5 + 3, WIN_HEIGHT * 0.5 + 20 };
 
 };

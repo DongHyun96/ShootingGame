@@ -39,6 +39,8 @@ using namespace std;
 #define COLOR_ORANGE	RGB(255, 165, 0)
 #define COLOR_PINK		RGB(255, 192, 203)
 
+#define PI				3.141592f
+
 
 // Object
 #include "Point.h"
@@ -74,13 +76,17 @@ using namespace std;
 #include "Shooting_PBulletManager.h"
 
 #include "Shooting_EnemyBullet.h"
+#include "Shooting_Missile.h"
 #include "Shooting_EBulletManager.h"
 
 #include "Shooting_Item.h"
 #include "Shooting_ItemManager.h"
 
 #include "Shooting_Player.h"
+
 #include "Shooting_Enemy.h"
+#include "Shooting_Saucer.h"
+#include "Shooting_Soldier.h"
 
 #include "Shooting_EnemyManager.h"
 

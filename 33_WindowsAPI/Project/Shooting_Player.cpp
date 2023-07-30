@@ -110,6 +110,8 @@ void Shooting_Player::Move()
 
 	body->Pos() += direction * speed * Time::Delta();
 
+	Shooting_GameManager::GetInst()->SetPlayerPos(body->Pos());
+
 	HandleBoundary();
 }
 

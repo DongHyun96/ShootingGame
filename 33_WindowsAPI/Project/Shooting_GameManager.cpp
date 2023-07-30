@@ -31,6 +31,8 @@ Shooting_GameManager::Shooting_GameManager()
 	shotGunTexture		= new Texture(L"_Texture/ShotGun.bmp", { 115, 113 }, { 1, 1 }, RGB(153, 217, 234));
 
 	weaponBody			= new Rect(Point(WIN_WIDTH * 0.05, WIN_HEIGHT * 0.92), Point(40, 40));
+
+	explosionTexture = new Texture(L"_Texture/Explode.bmp", { 538, 168 }, { 8, 1 }, RGB(0, 248, 0));
 }
 
 Shooting_GameManager::~Shooting_GameManager()
@@ -44,6 +46,8 @@ Shooting_GameManager::~Shooting_GameManager()
 	delete machineGunTexture;
 	delete shotGunTexture;
 
+	delete explosionTexture;
+
 	DeleteObject(frontPen);
 	DeleteObject(frontBrush);
 
@@ -55,8 +59,17 @@ Shooting_GameManager::~Shooting_GameManager()
 
 void Shooting_GameManager::Update()
 {
-	if (isGameOver)
+	if (!hasGameStart)
+	{
+		HandleGameStart();
 		return;
+	}
+
+	if (isGameOver)
+	{
+		MoveGameOverText();
+		return;
+	}
 
 	if (weaponState != PISTOL)
 	{
@@ -80,27 +93,25 @@ void Shooting_GameManager::Render(HDC hdc)
 	RenderHpBar(hdc);
 	RenderScore(hdc);
 
+	if (!hasGameStart)
+	{
+		RenderGameStart(hdc);
+		HandleRenderFinish(hdc, oldFont, prevAlign, prevMode);
+
+		return;
+	}
+
 	if (isGameOver)
 	{
 		// Render GameOver
 		RenderGameOver(hdc);
-
-		SelectObject(hdc, oldFont);
-		SetTextAlign(hdc, prevAlign);
-		SetBkMode(hdc, prevMode);
-
-		DeleteObject(oldFont);
+		HandleRenderFinish(hdc, oldFont, prevAlign, prevMode);
 
 		return;
 	}
 
 	RenderWeapon(hdc);
-
-	SelectObject(hdc, oldFont);
-	SetTextAlign(hdc, prevAlign);
-	SetBkMode(hdc, prevMode);
-
-	DeleteObject(oldFont);
+	HandleRenderFinish(hdc, oldFont, prevAlign, prevMode);
 }
 
 void Shooting_GameManager::UpdatePlayerHpBar(const UINT& hp)
@@ -191,11 +202,64 @@ void Shooting_GameManager::RenderWeapon(HDC hdc)
 
 void Shooting_GameManager::RenderGameOver(HDC hdc)
 {
-	COLORREF prevColor = SetTextColor(hdc, RGB(255, 0, 0));
+	COLORREF prevColor = SetTextColor(hdc, RGB(241, 201, 59));
 
-	wsprintf(lpOut, TEXT("GAME OVER!"));
-	TextOut(hdc, WIN_WIDTH / 2, WIN_HEIGHT / 2, lpOut, lstrlen(lpOut));
+	wsprintf(lpOut, TEXT("GAME"));
+	TextOut(hdc, gameTextPos.x, gameTextPos.y, lpOut, lstrlen(lpOut));
+
+	wsprintf(lpOut, TEXT("OVER!"));
+	TextOut(hdc, overTextPos.x, overTextPos.y, lpOut, lstrlen(lpOut));
+
 
 	SetTextColor(hdc, prevColor);
+}
+
+void Shooting_GameManager::HandleGameStart()
+{
+	if (GetAsyncKeyState('S'))
+		hasGameStart = true;
+}
+
+void Shooting_GameManager::RenderGameStart(HDC hdc)
+{
+	COLORREF prevColor = SetTextColor(hdc, RGB(210, 19, 18));
+
+	wsprintf(lpOut, TEXT("PRESS 'S' TO START!"));
+	TextOut(hdc, WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.5f, lpOut, lstrlen(lpOut));
+
+	SetTextColor(hdc, prevColor);
+}
+
+void Shooting_GameManager::MoveGameOverText()
+{
+	Vector2 temp = gameTextDestination - gameTextPos;
+	Vector2 direction = gameTextDestination - Point(0, 0);
+
+	if (Vector2::Dot(temp, direction) < 0) // Game Text destination reached
+	{
+		temp = overTextDestination - overTextPos;
+		direction = overTextDestination - Point(WIN_WIDTH, WIN_HEIGHT);
+
+		if (Vector2::Dot(temp, direction) < 0) // Over Text destination reached
+			return;
+
+		overTextPos += direction.GetNormal() * textSpeed * Time::Delta();
+		
+		return;
+	}
+
+	gameTextPos += direction.GetNormal() * textSpeed * Time::Delta();
+
+
+
+}
+
+void Shooting_GameManager::HandleRenderFinish(HDC hdc, HFONT prevFont, UINT prevAlign, int prevMode)
+{
+	SelectObject(hdc, prevFont);
+	SetTextAlign(hdc, prevAlign);
+	SetBkMode(hdc, prevMode);
+
+	DeleteObject(prevFont);
 }
 

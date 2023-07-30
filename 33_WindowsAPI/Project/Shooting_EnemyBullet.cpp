@@ -41,6 +41,11 @@ void Shooting_EnemyBullet::Fire(Point startPos, float speed, Vector2 direction)
 	this->direction = direction.GetNormal();
 }
 
+void Shooting_EnemyBullet::ApplyDamage()
+{
+	// Nothing to do here
+}
+
 void Shooting_EnemyBullet::Move()
 {
 	body->Pos() += direction * speed * Time::Delta();

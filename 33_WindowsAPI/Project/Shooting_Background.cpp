@@ -12,7 +12,9 @@ Shooting_Background::Shooting_Background()
 	bodies.push_back(body2);
 	bodies.push_back(body3);
 
-	texture = new Texture(L"_Texture/SpaceBackgound.bmp", { 512, 1024 }, { 1, 1 });
+	texture = new Texture(L"_Texture/SpaceBackgound4.bmp", { 1024, 1024 }, { 1, 1 });
+
+
 }
 
 Shooting_Background::~Shooting_Background()

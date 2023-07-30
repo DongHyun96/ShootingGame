@@ -28,6 +28,9 @@ void ShootingScene::Update()
 	backGround->Update();
 	Shooting_GameManager::GetInst()->Update();
 
+	if (!Shooting_GameManager::GetInst()->HasGameStart())
+		return;
+
 	if (!player->IsActive())
 		return;
 
@@ -44,7 +47,10 @@ void ShootingScene::Render(HDC hdc)
 
 	Shooting_GameManager::GetInst()->Render(hdc);
 
-	if (!player->IsActive())
+	if (!Shooting_GameManager::GetInst()->HasGameStart())
+		return;
+
+	if (!player->IsActive()) // gameOver state
 		return;
 
 	player->Render(hdc);
@@ -57,8 +63,9 @@ void ShootingScene::Render(HDC hdc)
 void ShootingScene::HandleCollision()
 {
 	HandleCollision(player->GetBulletManager()->GetBullets(), enemyManager->GetEnemies());
+	HandleCollision(player->GetBulletManager()->GetBullets(), enemyManager->GetMissiles());
 	HandleCollision(enemyManager->GetBullets(), player);
-
+	HandleCollision(enemyManager->GetMissiles(), player);
 	HandleCollision(itemManager->GetItemMap(), player);
 }
 
@@ -87,6 +94,27 @@ void ShootingScene::HandleCollision(vector<Shooting_PlayerBullet*>& pBullets, ve
 	}
 }
 
+void ShootingScene::HandleCollision(vector<Shooting_PlayerBullet*>& pBullets, vector<Shooting_Missile*>& eMissiles)
+{
+	for (Shooting_PlayerBullet* pBullet : pBullets)
+	{
+		if (!pBullet->IsActive())
+			continue;
+
+		for (Shooting_Missile* missile : eMissiles)
+		{
+			if (!missile->IsActive())
+				continue;
+
+			if (Collision::Collision(pBullet->GetBody(), missile->GetBody()))
+			{
+				pBullet->SetActive(false);
+				missile->ApplyDamage();
+			}
+		}
+	}
+}
+
 void ShootingScene::HandleCollision(vector<Shooting_EnemyBullet*>& eBullets, Shooting_Player* player)
 {
 	for (Shooting_EnemyBullet* bullet : eBullets)
@@ -101,6 +129,22 @@ void ShootingScene::HandleCollision(vector<Shooting_EnemyBullet*>& eBullets, Sho
 		}
 	}
 }
+
+void ShootingScene::HandleCollision(vector<Shooting_Missile*>& eMissiles, Shooting_Player* player)
+{
+	for (Shooting_Missile* missile : eMissiles)
+	{
+		if (!missile->IsActive())
+			continue;
+
+		if (Collision::Collision(player->GetBody(), missile->GetBody()))
+		{
+			missile->SetActive(false);
+			player->ApplyDamage();
+		}
+	}
+}
+
 
 void ShootingScene::HandleCollision(map<ItemType, vector<Shooting_Item*>>& itemMap, Shooting_Player* player)
 {

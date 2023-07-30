@@ -166,10 +166,13 @@
     <ClInclude Include="Shooting_GameManager.h" />
     <ClInclude Include="Shooting_Item.h" />
     <ClInclude Include="Shooting_ItemManager.h" />
+    <ClInclude Include="Shooting_Missile.h" />
     <ClInclude Include="Shooting_PBulletManager.h" />
     <ClInclude Include="Shooting_Player.h" />
     <ClInclude Include="ShootingScene.h" />
     <ClInclude Include="Shooting_PlayerBullet.h" />
+    <ClInclude Include="Shooting_Saucer.h" />
+    <ClInclude Include="Shooting_Soldier.h" />
     <ClInclude Include="Tank.h" />
     <ClInclude Include="Targetver.h" />
     <ClInclude Include="Texture.h" />
@@ -213,10 +216,13 @@
     <ClCompile Include="Shooting_GameManager.cpp" />
     <ClCompile Include="Shooting_Item.cpp" />
     <ClCompile Include="Shooting_ItemManager.cpp" />
+    <ClCompile Include="Shooting_Missile.cpp" />
     <ClCompile Include="Shooting_PBulletManager.cpp" />
     <ClCompile Include="Shooting_Player.cpp" />
     <ClCompile Include="ShootingScene.cpp" />
     <ClCompile Include="Shooting_PlayerBullet.cpp" />
+    <ClCompile Include="Shooting_Saucer.cpp" />
+    <ClCompile Include="Shooting_Soldier.cpp" />
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureScene.cpp" />
