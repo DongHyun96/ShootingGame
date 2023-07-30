@@ -5,73 +5,64 @@
 ShootingScene::ShootingScene()
 {
 	player = new Shooting_Player;
-	enemyManager = new Shooting_EnemyManager;
+
+	itemManager = new Shooting_ItemManager;
+
+	enemyManager = new Shooting_EnemyManager(itemManager);
+
 	backGround = new Shooting_Background;
 
-	hFont = CreateFont(
-		30,				  // Desired font size
-		0,                // Font width
-		0,                // Font escapement
-		0,                // Orientation
-		FW_NORMAL,        // Font weight
-		FALSE,            // Italic
-		FALSE,            // Underline
-		FALSE,            // Strikeout
-		DEFAULT_CHARSET,  // Character set
-		OUT_DEFAULT_PRECIS,
-		CLIP_DEFAULT_PRECIS,
-		DEFAULT_QUALITY,
-		DEFAULT_PITCH | FF_DONTCARE,
-		TEXT("Impact")     // Font name
-	);
 }
 
 ShootingScene::~ShootingScene()
 {
 	delete player;
 	delete enemyManager;
+	delete itemManager;
 	delete backGround;
-	DeleteObject(hFont);
 }
 
 
 void ShootingScene::Update()
 {
 	backGround->Update();
+	Shooting_GameManager::GetInst()->Update();
+
+	if (!player->IsActive())
+		return;
+
 	player->Update();
 	enemyManager->Update();
+	itemManager->Update();
 
 	HandleCollision();
 }
 
 void ShootingScene::Render(HDC hdc)
 {
-	HFONT oldFont = (HFONT)SelectObject(hdc, hFont);
-	UINT prevAlign = SetTextAlign(hdc, TA_CENTER);
-	int prevMode = SetBkMode(hdc, TRANSPARENT);
-
-
-
 	backGround->Render(hdc);
+
+	Shooting_GameManager::GetInst()->Render(hdc);
+
+	if (!player->IsActive())
+		return;
 
 	player->Render(hdc);
 	enemyManager->Render(hdc);
+	itemManager->Render(hdc);
 
-
-	SelectObject(hdc, oldFont);
-	SetTextAlign(hdc, prevAlign);
-	SetBkMode(hdc, prevMode);
-
-	DeleteObject(oldFont);
 }
+
 
 void ShootingScene::HandleCollision()
 {
 	HandleCollision(player->GetBulletManager()->GetBullets(), enemyManager->GetEnemies());
 	HandleCollision(enemyManager->GetBullets(), player);
+
+	HandleCollision(itemManager->GetItemMap(), player);
 }
 
-void ShootingScene::HandleCollision(vector<Shooting_PlayerBullet*>& pBullets, vector<Shooting_Enemy*> enemies)
+void ShootingScene::HandleCollision(vector<Shooting_PlayerBullet*>& pBullets, vector<Shooting_Enemy*>& enemies)
 {
 	for (Shooting_PlayerBullet* bullet : pBullets)
 	{
@@ -81,6 +72,9 @@ void ShootingScene::HandleCollision(vector<Shooting_PlayerBullet*>& pBullets, ve
 		for (Shooting_Enemy* enemy : enemies)
 		{
 			if (!enemy->IsActive())
+				continue;
+
+			if (enemy->IsActive() && enemy->HasDestroyed())
 				continue;
 
 			if (Collision::Collision(bullet->GetBody(), enemy->GetBody()))
@@ -107,3 +101,22 @@ void ShootingScene::HandleCollision(vector<Shooting_EnemyBullet*>& eBullets, Sho
 		}
 	}
 }
+
+void ShootingScene::HandleCollision(map<ItemType, vector<Shooting_Item*>>& itemMap, Shooting_Player* player)
+{
+	for (auto& pair : itemMap)
+	{
+		for (Shooting_Item* item : pair.second)
+		{
+			if (!item->IsActive())
+				continue;
+
+			if (Collision::Collision(player->GetBody(), item->GetBody()))
+			{
+				item->SetActive(false);
+				player->SetWeaponState((Weapon_State)(pair.first + 1));
+			}
+		}
+	}
+}
+

@@ -52,6 +52,12 @@
     <Filter Include="GameObject\Shooting\BackGround">
       <UniqueIdentifier>{ce53b2fb-b8fd-4db1-b7f0-60a2547fb7b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Shooting\Item">
+      <UniqueIdentifier>{ab0eae07-92e3-4518-af0d-a5ac20076713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Shooting\GameManager">
+      <UniqueIdentifier>{5c90e8f5-df7c-49e7-b91f-0bd57ffecf17}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h">
@@ -171,6 +177,15 @@
     <ClInclude Include="Shooting_Background.h">
       <Filter>GameObject\Shooting\BackGround</Filter>
     </ClInclude>
+    <ClInclude Include="Shooting_Item.h">
+      <Filter>GameObject\Shooting\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_ItemManager.h">
+      <Filter>GameObject\Shooting\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooting_GameManager.h">
+      <Filter>GameObject\Shooting\GameManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -280,6 +295,15 @@
     </ClCompile>
     <ClCompile Include="Shooting_Background.cpp">
       <Filter>GameObject\Shooting\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_Item.cpp">
+      <Filter>GameObject\Shooting\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_ItemManager.cpp">
+      <Filter>GameObject\Shooting\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooting_GameManager.cpp">
+      <Filter>GameObject\Shooting\GameManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -2,7 +2,7 @@
 class Shooting_EnemyManager
 {
 public:
-	Shooting_EnemyManager();
+	Shooting_EnemyManager(Shooting_ItemManager* itemManager);
 	~Shooting_EnemyManager();
 
 	void Update();
@@ -22,4 +22,6 @@ private:
 	vector<Shooting_Enemy*> enemies = {};
 
 	Texture* enemyTexture = nullptr;
+
+	Texture* explosionTexture = nullptr;
 };

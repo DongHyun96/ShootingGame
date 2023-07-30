@@ -1,5 +1,8 @@
 #pragma once
 
+#define PLAYER_HP_MAX 20
+#define WEAPON_HOLD_TIME_MAX 15.f
+
 enum Weapon_State
 {
 	PISTOL,
@@ -29,18 +32,25 @@ public:
 
 	void ApplyDamage();
 
+	void SetWeaponState(Weapon_State state);
+
+	bool IsActive() const { return isActive; }
+
 private:
 	void Move();
 	void FireWeapon();
 
 	void HandleTextureFrame();
+	void HandleExplosionFrame();
 	void HandleBoundary();
 
-	void RenderHpBar(HDC hdc);
+	void HandleWeaponTime();
 
 private:
 	Rect* body = nullptr;
 	Texture* texture = nullptr;
+
+	Texture* explosionTexture = nullptr;
 
 	POINT curFrame = {};
 
@@ -49,22 +59,14 @@ private:
 
 	Vector2 direction = {};
 
-	Weapon_State weaponState = MACHINE_GUN;
+	Weapon_State weaponState = PISTOL;
+	float weaponHoldTime = 0.f;
 
 	Shooting_PBulletManager* bulletManager = nullptr;
 
-	UINT hp = 30;
+	UINT hp = PLAYER_HP_MAX;
 
 	bool isActive = true;
-
-private:
-	Rect* frontBar = nullptr;
-	Rect* backBar = nullptr;
-
-	HPEN backPen = CreatePen(PS_SOLID, 5, RGB(253, 141, 20));
-	HBRUSH backBrush = CreateSolidBrush(RGB(255, 250, 215));
-
-	HPEN frontPen = CreatePen(PS_SOLID, 1, RGB(197, 22, 5));
-	HBRUSH frontBrush = CreateSolidBrush(RGB(197, 22, 5));
+	bool hasDestroyed = false;
 
 };

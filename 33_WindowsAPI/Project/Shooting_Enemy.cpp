@@ -3,11 +3,9 @@
 
 
 
-Shooting_Enemy::Shooting_Enemy(Texture* texture, Shooting_EBulletManager* bulletManager)
-	: texture(texture), bulletManager(bulletManager)
+Shooting_Enemy::Shooting_Enemy(Texture* texture, Texture* explodeTexture, Shooting_EBulletManager* bulletManager, Shooting_ItemManager* itemManager)
+	: texture(texture), explodeTexture(explodeTexture), bulletManager(bulletManager), itemManager(itemManager)
 {
-	texture = new Texture(L"_Texture/ufo.bmp", { 530, 32 }, { 10, 1 });
-
 	body = new Rect(WIN_CENTER, { 53 * 1.2f, 32 * 1.2f });
 
 	curFrame = { 0, 0 };
@@ -24,6 +22,12 @@ void Shooting_Enemy::Update()
 	if (!isActive)
 		return;
 
+	if (hasDestroyed)
+	{
+		HandleExplosionFrame();
+		return;
+	}
+
 	Move();
 	HandleTextureFrame();
 	FireWeapon();
@@ -34,17 +38,27 @@ void Shooting_Enemy::Render(HDC hdc)
 	if (!isActive)
 		return;
 
+	if (hasDestroyed)
+	{
+		explodeTexture->Render(body, curFrame);
+		return;
+	}
+
 	texture->Render(body, curFrame);
 }
 
 void Shooting_Enemy::Spawn(Point startPos, Point endPos)
 {
 	isActive = true;
+	hasDestroyed = false;
+
 	body->Pos() = startPos;
 	direction = (endPos - startPos).GetNormal();
 	destination = endPos;
 
-	hp = GetRandom(1, 20);
+	curFrame = { 0, 0 };
+
+	hp = GetRandom(1, 10);
 	speed = GetRandom(100.f, 300.f);
 }
 
@@ -56,8 +70,16 @@ void Shooting_Enemy::ApplyDamage()
 
 	hp--;
 
-	if (hp <= 0)
-		isActive = false;
+	if (hp <= 0) // Dead
+	{
+		curFrame = { 0, 0 };
+		hasDestroyed = true;
+
+		if (rand() % 5 == 0) // 20%의 확률로 아이템 스폰
+			itemManager->SpawnRandomItem(body->Pos());
+
+		Shooting_GameManager::GetInst()->AddScore(50);
+	}
 }
 
 void Shooting_Enemy::Move()
@@ -104,5 +126,25 @@ void Shooting_Enemy::HandleTextureFrame()
 		textureTime -= 0.02f;
 
 		++curFrame.x %= 10;
+	}
+}
+
+void Shooting_Enemy::HandleExplosionFrame()
+{
+	static float textureTime = 0.f;
+	
+	textureTime += Time::Delta();
+
+	if (textureTime >= 0.07f)
+	{
+		textureTime -= 0.07f;
+
+		curFrame.x++;
+
+		if (curFrame.x == 8)
+		{
+			isActive = false;
+			hasDestroyed = false;
+		}
 	}
 }

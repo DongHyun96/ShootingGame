@@ -2,14 +2,16 @@
 #include "Shooting_EnemyManager.h"
 
 
-Shooting_EnemyManager::Shooting_EnemyManager()
+Shooting_EnemyManager::Shooting_EnemyManager(Shooting_ItemManager* itemManager)
 {
 	enemyTexture = new Texture(L"_Texture/ufo.bmp", { 530, 32 }, { 10, 1 });
+	explosionTexture = new Texture(L"_Texture/Explode.bmp", { 538, 168 }, { 8, 1 }, RGB(0, 248, 0));
 
 	bulletManager = new Shooting_EBulletManager;
 
 	for (UINT i = 0; i < 30; i++)
-		enemies.push_back(new Shooting_Enemy(enemyTexture, bulletManager));
+		enemies.push_back(new Shooting_Enemy(enemyTexture, explosionTexture, bulletManager, itemManager));
+
 }
 
 Shooting_EnemyManager::~Shooting_EnemyManager()
@@ -22,6 +24,7 @@ Shooting_EnemyManager::~Shooting_EnemyManager()
 	enemies.clear();
 
 	delete enemyTexture;
+	delete explosionTexture;
 }
 
 void Shooting_EnemyManager::Update()

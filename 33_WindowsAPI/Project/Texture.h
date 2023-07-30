@@ -16,4 +16,5 @@ private:
 	POINT imageSize		= {}; // 원본 이미지 크기
 	POINT frameSize		= {}; // 자를 프레임의 개수
 	POINT textureSize	= {}; // 잘린 이미지의 크기
+
 };

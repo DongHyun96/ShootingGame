@@ -17,7 +17,9 @@
 using namespace std;
 
 // Default 1280.f x 720.f
-#define WIN_WIDTH		700.f
+
+// 700 * 900
+#define WIN_WIDTH		800.f
 #define WIN_HEIGHT		900.f
 
 #define WIN_CENTER		Point(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.5f)
@@ -74,12 +76,18 @@ using namespace std;
 #include "Shooting_EnemyBullet.h"
 #include "Shooting_EBulletManager.h"
 
+#include "Shooting_Item.h"
+#include "Shooting_ItemManager.h"
+
 #include "Shooting_Player.h"
 #include "Shooting_Enemy.h"
 
 #include "Shooting_EnemyManager.h"
 
 #include "Shooting_Background.h"
+
+#include "Shooting_GameManager.h"
+
 
 // Scene
 #include "Scene.h"

@@ -12,8 +12,7 @@ Shooting_Player::Shooting_Player()
 
 	bulletManager = new Shooting_PBulletManager;
 
-	backBar = new Rect(Point(120, WIN_HEIGHT * 0.97f), Point(200, 20));
-	frontBar = new Rect(Point(120, WIN_HEIGHT * 0.97f), Point(195, 15));
+	explosionTexture = new Texture(L"_Texture/Explode.bmp", { 538, 168 }, { 8, 1 }, RGB(0, 248, 0));
 }
 
 Shooting_Player::~Shooting_Player()
@@ -22,15 +21,6 @@ Shooting_Player::~Shooting_Player()
 	delete body;
 	delete bulletManager;
 
-	delete frontBar;
-	delete backBar;
-
-	DeleteObject(frontPen);
-	DeleteObject(frontBrush);
-
-	DeleteObject(backPen);
-	DeleteObject(backBrush);
-
 }
 
 void Shooting_Player::Update()
@@ -38,20 +28,32 @@ void Shooting_Player::Update()
 	if (!isActive)
 		return;
 
+	if (hasDestroyed)
+	{
+		HandleExplosionFrame();
+		return;
+	}
+
 	Move();
 	FireWeapon();
 
 	HandleTextureFrame();
+
+	HandleWeaponTime();
 
 	bulletManager->Update();
 }
 
 void Shooting_Player::Render(HDC hdc)
 {
-	RenderHpBar(hdc);
-
 	if (!isActive)
 		return;
+
+	if (hasDestroyed)
+	{
+		explosionTexture->Render(body, curFrame);
+		return;
+	}
 
 	texture->Render(body, curFrame);
 	bulletManager->Render(hdc);
@@ -60,24 +62,31 @@ void Shooting_Player::Render(HDC hdc)
 
 void Shooting_Player::ApplyDamage()
 {
-	hp--;
+	if (hasDestroyed)
+		return;
 
-	float newXSize = MappingtoNewRange((float)hp, 0.f, 30.f, 0.f, backBar->Size().x);
-
-	// Update HP bar
-	frontBar->SetRect
-	(
-		frontBar->Left(),
-		frontBar->Top(),
-		frontBar->Left() + newXSize,
-		frontBar->Bottom()
-	);
+	Shooting_GameManager::GetInst()->UpdatePlayerHpBar(--hp);
 	
 	if (hp <= 0)
 	{
 		// player's dead
-		isActive = false;
+		//isActive = false;
+
+		body->Size().x = 100.f;
+		body->Size().y = 200.f;
+
+		curFrame = { 0, 0 };
+		hasDestroyed = true;
 	}
+}
+
+void Shooting_Player::SetWeaponState(Weapon_State state)
+{
+	this->weaponState = state;
+
+	weaponHoldTime = 0.f;
+
+	Shooting_GameManager::GetInst()->UpdatePlayerWeaponState(state);
 }
 
 void Shooting_Player::Move()
@@ -185,19 +194,37 @@ void Shooting_Player::HandleTextureFrame()
 		textureTime -= 0.03f;
 
 		if (direction.x > 0.f)
-		{
 			curFrame.x = (curFrame.x == 13) ? curFrame.x : curFrame.x + 1;
-		}
+
 		else if (direction.x < 0.f)
-		{
 			curFrame.x = (curFrame.x == 0) ? curFrame.x : curFrame.x - 1;
-		}
+
 		else
 		{
 			curFrame.x = (curFrame.x == 6) ? curFrame.x :
 				(curFrame.x < 6) ? curFrame.x + 1 : curFrame.x - 1;
 		}
 
+	}
+}
+
+void Shooting_Player::HandleExplosionFrame()
+{
+	static float textureTime = 0.f;
+
+	textureTime += Time::Delta();
+
+	if (textureTime >= 0.1f)
+	{
+		textureTime -= 0.1f;
+
+		curFrame.x++;
+
+		if (curFrame.x == 8)
+		{
+			isActive = false;
+			Shooting_GameManager::GetInst()->SetGameOver(true);
+		}
 	}
 }
 
@@ -213,17 +240,20 @@ void Shooting_Player::HandleBoundary()
 		body->Pos().x = WIN_WIDTH - body->Size().x * 0.5f;
 }
 
-void Shooting_Player::RenderHpBar(HDC hdc)
+void Shooting_Player::HandleWeaponTime()
 {
-	HPEN prevPen		= (HPEN)SelectObject(hdc, backPen);
-	HBRUSH prevBrush	= (HBRUSH)SelectObject(hdc, backBrush);
+	if (weaponState == PISTOL)
+		return;
 
-	backBar->Render(hdc);
+	weaponHoldTime += Time::Delta();
 
-	SelectObject(hdc, frontPen);
-	SelectObject(hdc, frontBrush);
-	frontBar->Render(hdc);
+	if (weaponHoldTime >= WEAPON_HOLD_TIME_MAX)
+	{
+		weaponHoldTime = 0.f;
 
-	SelectObject(hdc, prevPen);
-	SelectObject(hdc, prevBrush);
+		weaponState = PISTOL;
+
+		Shooting_GameManager::GetInst()->UpdatePlayerWeaponState(weaponState);
+	}
+
 }

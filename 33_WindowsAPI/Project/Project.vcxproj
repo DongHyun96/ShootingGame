@@ -163,6 +163,9 @@
     <ClInclude Include="Shooting_Enemy.h" />
     <ClInclude Include="Shooting_EnemyBullet.h" />
     <ClInclude Include="Shooting_EnemyManager.h" />
+    <ClInclude Include="Shooting_GameManager.h" />
+    <ClInclude Include="Shooting_Item.h" />
+    <ClInclude Include="Shooting_ItemManager.h" />
     <ClInclude Include="Shooting_PBulletManager.h" />
     <ClInclude Include="Shooting_Player.h" />
     <ClInclude Include="ShootingScene.h" />
@@ -207,6 +210,9 @@
     <ClCompile Include="Shooting_Enemy.cpp" />
     <ClCompile Include="Shooting_EnemyBullet.cpp" />
     <ClCompile Include="Shooting_EnemyManager.cpp" />
+    <ClCompile Include="Shooting_GameManager.cpp" />
+    <ClCompile Include="Shooting_Item.cpp" />
+    <ClCompile Include="Shooting_ItemManager.cpp" />
     <ClCompile Include="Shooting_PBulletManager.cpp" />
     <ClCompile Include="Shooting_Player.cpp" />
     <ClCompile Include="ShootingScene.cpp" />
