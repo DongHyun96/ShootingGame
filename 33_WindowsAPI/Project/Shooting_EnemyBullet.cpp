@@ -46,6 +46,17 @@ void Shooting_EnemyBullet::ApplyDamage()
 	// Nothing to do here
 }
 
+bool Shooting_EnemyBullet::HasDestroyed() const
+{
+	// Nothing to do here
+	return false;
+}
+
+void Shooting_EnemyBullet::HandleDestroyed()
+{
+	// Nothing to do here
+}
+
 void Shooting_EnemyBullet::Move()
 {
 	body->Pos() += direction * speed * Time::Delta();

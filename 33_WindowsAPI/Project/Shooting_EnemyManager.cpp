@@ -11,13 +11,22 @@ Shooting_EnemyManager::Shooting_EnemyManager(Shooting_ItemManager* itemManager)
 
 	bulletManager = new Shooting_EBulletManager;
 
-	for (UINT i = 0; i < 30; i++)
+	for (UINT i = 0; i < 60; i++)
 	{
-		// 30%의 확률로 soldier 넣기
-		if (rand() % 10 < 5)
-			enemies.push_back(new Shooting_Soldier(enemyTexture2, explosionTexture, bulletManager, itemManager));
-		else
-			enemies.push_back(new Shooting_Saucer(enemyTexture, explosionTexture, bulletManager, itemManager));
+		Shooting_Enemy* enemy = nullptr;
+
+		if (i <= 30)
+		{
+			enemy = new Shooting_Soldier(enemyTexture2, explosionTexture, bulletManager, itemManager);
+			soldiers.push_back(enemy);
+		}
+		else 
+		{
+			enemy = new Shooting_Saucer(enemyTexture, explosionTexture, bulletManager, itemManager);
+			saucers.push_back(enemy);
+		}
+
+		enemies.push_back(enemy);
 	}
 }
 
@@ -29,6 +38,8 @@ Shooting_EnemyManager::~Shooting_EnemyManager()
 		delete enemy;
 
 	enemies.clear();
+	saucers.clear();
+	soldiers.clear();
 
 	delete enemyTexture;
 	delete enemyTexture2;
@@ -56,6 +67,8 @@ void Shooting_EnemyManager::Render(HDC hdc)
 
 void Shooting_EnemyManager::SpawnEnemy()
 {
+	static float spawnFactor = 200.f;
+
 	static float spawnTime = 0.f;
 
 	spawnTime += Time::Delta();
@@ -66,11 +79,28 @@ void Shooting_EnemyManager::SpawnEnemy()
 		return;
 	}
 
-	if (spawnTime >= 2.f)
-	{
-		spawnTime -= 2.f;
+	spawnFactor = (spawnFactor <= 30.f) ? spawnFactor : spawnFactor - Time::Delta() * 1.5f;
 
-		for (Shooting_Enemy* enemy : enemies)
+	if (spawnTime >= spawnFactor / 100.f)
+	{
+		spawnTime -= spawnFactor / 100.f;
+		
+		// 30%의 확률로 soldier 스폰
+		if (rand() % 10 < 3)
+			SpawnRoutine(SOLDIER);
+		else // spawn saucer
+			SpawnRoutine(SAUCER);
+	}
+	
+}
+
+void Shooting_EnemyManager::SpawnRoutine(EnemyType type)
+{
+	switch (type)
+	{
+	case SAUCER:
+	{
+		for (Shooting_Enemy* enemy : saucers)
 		{
 			if (!enemy->IsActive())
 			{
@@ -78,7 +108,7 @@ void Shooting_EnemyManager::SpawnEnemy()
 
 				do
 				{
-					endPos = 
+					endPos =
 					{
 						GetRandom(enemy->GetBody()->Size().x * 0.5f, WIN_WIDTH - enemy->GetBody()->Size().x * 0.5f),
 						GetRandom(enemy->GetBody()->Size().y * 0.5f, WIN_HEIGHT * 0.4f)
@@ -121,9 +151,64 @@ void Shooting_EnemyManager::SpawnEnemy()
 			}
 		}
 	}
+		break;
+	case SOLDIER:
+	{
+		for (Shooting_Enemy* enemy : soldiers)
+		{
+			if (!enemy->IsActive())
+			{
+				Point endPos;
+
+				do
+				{
+					endPos =
+					{
+						GetRandom(enemy->GetBody()->Size().x * 0.5f, WIN_WIDTH - enemy->GetBody()->Size().x * 0.5f),
+						GetRandom(enemy->GetBody()->Size().y * 0.5f, WIN_HEIGHT * 0.4f)
+					};
+				} while (!CheckSpawnEndPosValid(endPos));
 
 
-	
+				Point startPos;
+
+				switch (rand() % 3)
+				{
+				case 0: // 왼쪽 구석에서 스폰 시작
+					startPos =
+					{
+						-enemy->GetBody()->Size().x * 0.5f,
+						GetRandom(0.f, WIN_HEIGHT * 0.4f)
+					};
+					break;
+				case 1: // 상단에서 스폰 시작
+					startPos =
+					{
+						GetRandom(0.f, WIN_WIDTH),
+						-enemy->GetBody()->Size().y * 0.5f
+					};
+					break;
+				case 2: // 오른쪽 구석에서 스폰 시작
+					startPos =
+					{
+						WIN_WIDTH + enemy->GetBody()->Size().x * 0.5f,
+						GetRandom(0.f, WIN_HEIGHT * 0.4f)
+					};
+					break;
+				default:
+					break;
+				}
+
+				enemy->Spawn(startPos, endPos);
+
+				break;
+			}
+		}
+	}
+		break;
+	default:
+		break;
+	}
 }
 
 UINT Shooting_EnemyManager::GetActiveEnemiesCnt()

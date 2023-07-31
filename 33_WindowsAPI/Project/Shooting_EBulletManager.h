@@ -22,4 +22,6 @@ private:
 
 	Texture* bulletTexture = nullptr;
 	Texture* missileTexture = nullptr;
+
+	Texture* explosionTexture = nullptr;
 };

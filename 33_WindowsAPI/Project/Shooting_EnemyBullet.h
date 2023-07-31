@@ -17,6 +17,9 @@ public:
 
 	virtual void ApplyDamage();
 
+	virtual bool HasDestroyed() const;
+	virtual void HandleDestroyed();
+
 protected:
 
 	virtual void Move();

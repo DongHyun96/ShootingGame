@@ -2,8 +2,8 @@
 #include "Shooting_Missile.h"
 
 
-Shooting_Missile::Shooting_Missile(Texture* texture)
-	:Shooting_EnemyBullet(texture)
+Shooting_Missile::Shooting_Missile(Texture* texture, Texture* explosionTexture)
+	:Shooting_EnemyBullet(texture), explosionTexture(explosionTexture)
 {
 	body->Size() = { 50, 50 };
 
@@ -25,6 +25,12 @@ void Shooting_Missile::Update()
 	if (!isActive)
 		return;
 
+	if (hasDestroyed)
+	{
+		HandleExplosionFrame();
+		return;
+	}
+
 	UpdateDirection();
 	UpdateSprite();
 }
@@ -34,7 +40,10 @@ void Shooting_Missile::Render(HDC hdc)
 	if (!isActive)
 		return;
 
-	texture->Render(body, curFrame);
+	if (hasDestroyed)
+		explosionTexture->Render(body, curFrame);
+	else
+		texture->Render(body, curFrame);
 }
 
 void Shooting_Missile::Move()
@@ -47,10 +56,16 @@ void Shooting_Missile::ApplyDamage()
 	hp--;
 
 	if (hp <= 0)
-	{
-		hp = MISSILE_HP;
-		isActive = false;
-	}
+		HandleDestroyed();
+}
+
+void Shooting_Missile::HandleDestroyed()
+{
+	hp = MISSILE_HP;
+	textureTime = 0.f;
+	curFrame = { 0, 0 };
+	//isActive = false;
+	hasDestroyed = true;
 }
 
 void Shooting_Missile::UpdateDirection()
@@ -75,4 +90,22 @@ void Shooting_Missile::UpdateSprite()
 		}
 	}
 
+}
+
+void Shooting_Missile::HandleExplosionFrame()
+{
+	textureTime += Time::Delta();
+
+	if (textureTime >= 0.07f)
+	{
+		textureTime -= 0.07f;
+
+		curFrame.x++;
+
+		if (curFrame.x == 8)
+		{
+			isActive = false;
+			hasDestroyed = false;
+		}
+	}
 }

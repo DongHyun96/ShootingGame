@@ -9,11 +9,13 @@ Shooting_EBulletManager::Shooting_EBulletManager()
 
 	missileTexture = new Texture(L"_Texture/missilePF.bmp", { 576, 44 }, { 16, 1 });
 
+	explosionTexture = new Texture(L"_Texture/Explode.bmp", { 538, 168 }, { 8, 1 }, RGB(0, 248, 0));
+
 	for (UINT i = 0; i < 200; i++)
 		bullets.push_back(new Shooting_EnemyBullet(bulletTexture));
 
 	for (UINT i = 0; i < 100; i++)
-		missiles.push_back(new Shooting_Missile(missileTexture));
+		missiles.push_back(new Shooting_Missile(missileTexture, explosionTexture));
 
 
 }
@@ -31,6 +33,7 @@ Shooting_EBulletManager::~Shooting_EBulletManager()
 
 	delete bulletTexture;
 	delete missileTexture;
+	delete explosionTexture;
 }
 
 void Shooting_EBulletManager::Update()

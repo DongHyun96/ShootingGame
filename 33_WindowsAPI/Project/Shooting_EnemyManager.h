@@ -1,4 +1,11 @@
 #pragma once
+
+enum EnemyType
+{
+	SAUCER,
+	SOLDIER
+};
+
 class Shooting_EnemyManager
 {
 public:
@@ -14,6 +21,7 @@ public:
 
 private:
 	void SpawnEnemy();
+	void SpawnRoutine(EnemyType type);
 
 	UINT GetActiveEnemiesCnt();
 
@@ -23,6 +31,9 @@ private:
 	Shooting_EBulletManager* bulletManager = nullptr;
 
 	vector<Shooting_Enemy*> enemies = {};
+
+	vector<Shooting_Enemy*> saucers = {};
+	vector<Shooting_Enemy*> soldiers = {};
 
 	Texture* enemyTexture = nullptr;
 	Texture* enemyTexture2 = nullptr;

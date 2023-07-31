@@ -106,6 +106,9 @@ void ShootingScene::HandleCollision(vector<Shooting_PlayerBullet*>& pBullets, ve
 			if (!missile->IsActive())
 				continue;
 
+			if (missile->IsActive() && missile->HasDestroyed())
+				continue;
+
 			if (Collision::Collision(pBullet->GetBody(), missile->GetBody()))
 			{
 				pBullet->SetActive(false);
@@ -137,9 +140,12 @@ void ShootingScene::HandleCollision(vector<Shooting_Missile*>& eMissiles, Shooti
 		if (!missile->IsActive())
 			continue;
 
+		if (missile->IsActive() && missile->HasDestroyed())
+			continue;
+
 		if (Collision::Collision(player->GetBody(), missile->GetBody()))
 		{
-			missile->SetActive(false);
+			missile->HandleDestroyed();
 			player->ApplyDamage();
 		}
 	}

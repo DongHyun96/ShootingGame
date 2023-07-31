@@ -24,7 +24,10 @@ void Shooting_Soldier::FireWeapon()
 	if (fireTime >= 3.f)
 	{
 		fireTime -= 3.f;
-		bulletManager->FireMissile({ body->Pos().x, body->Bottom() }, 150.f);
+
+		float randomSpeed = GetRandom(150.f, 300.f);
+
+		bulletManager->FireMissile({ body->Pos().x, body->Bottom() }, randomSpeed);
 	}
 }
 

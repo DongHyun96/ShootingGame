@@ -32,7 +32,6 @@ Shooting_GameManager::Shooting_GameManager()
 
 	weaponBody			= new Rect(Point(WIN_WIDTH * 0.05, WIN_HEIGHT * 0.92), Point(40, 40));
 
-	explosionTexture = new Texture(L"_Texture/Explode.bmp", { 538, 168 }, { 8, 1 }, RGB(0, 248, 0));
 }
 
 Shooting_GameManager::~Shooting_GameManager()
@@ -45,8 +44,6 @@ Shooting_GameManager::~Shooting_GameManager()
 
 	delete machineGunTexture;
 	delete shotGunTexture;
-
-	delete explosionTexture;
 
 	DeleteObject(frontPen);
 	DeleteObject(frontBrush);
@@ -217,7 +214,10 @@ void Shooting_GameManager::RenderGameOver(HDC hdc)
 void Shooting_GameManager::HandleGameStart()
 {
 	if (GetAsyncKeyState('S'))
+	{
 		hasGameStart = true;
+		PlaySound(TEXT("_Sound/starFox.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP | SND_NODEFAULT);
+	}
 }
 
 void Shooting_GameManager::RenderGameStart(HDC hdc)

@@ -25,8 +25,6 @@ public:
 	void SetPlayerPos(const Point& pos) { playerPos = pos; }
 	Point GetPlayerPos() const { return playerPos; }
 
-	Texture* GetExplosionTexture() const { return explosionTexture; }
-
 private:
 	void RenderHpBar(HDC hdc);
 	void RenderScore(HDC hdc);
@@ -43,8 +41,6 @@ private:
 	HFONT hFont;
 	Texture* boardTexture = nullptr;
 	Point playerPos = {};
-
-	Texture* explosionTexture = nullptr;
 
 private: // player HP bar field
 
