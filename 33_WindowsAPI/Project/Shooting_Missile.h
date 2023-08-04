@@ -22,7 +22,6 @@ private:
 	void UpdateSprite();
 
 	void HandleExplosionFrame();
-	
 
 private:
 

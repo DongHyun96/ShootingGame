@@ -22,7 +22,7 @@ using namespace std;
 
 // Default 1280.f x 720.f
 
-// 700 * 900
+// 800 * 900
 #define WIN_WIDTH		800.f
 #define WIN_HEIGHT		900.f
 

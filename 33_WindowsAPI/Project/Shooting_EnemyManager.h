@@ -21,7 +21,8 @@ public:
 
 private:
 	void SpawnEnemy();
-	void SpawnRoutine(EnemyType type);
+	void SpawnEnemy(EnemyType type);
+	bool SpawnEnemy(Shooting_Enemy* enemy);
 
 	UINT GetActiveEnemiesCnt();
 

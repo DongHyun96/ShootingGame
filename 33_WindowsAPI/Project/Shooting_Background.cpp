@@ -51,15 +51,15 @@ void Shooting_Background::HandleSwapTexture()
 	{
 		if (bodies[i]->Top() >= WIN_HEIGHT)
 		{
-			bodies[i]->Pos() = Point(WIN_WIDTH * 0.5f, -WIN_HEIGHT * 1.5f);
+			bodies[i]->Pos() = Point(WIN_WIDTH * 0.5f, bodies[topIdx]->Top() - WIN_HEIGHT * 0.5f);
 
-			bodies[i]->SetRect
+			/*bodies[i]->SetRect
 			(
 				bodies[i]->Left(),
 				bodies[topIdx]->Top() - WIN_HEIGHT,
 				bodies[i]->Right(),
 				bodies[topIdx]->Top()
-			);
+			);*/
 
 			topIdx = i;
 

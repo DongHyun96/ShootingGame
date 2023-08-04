@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MainGame" Collapsed="true">
+    <Position X="24.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAACAAICAAAAgAAAAABAAAAAEAAA=</HashCode>
+      <FileName>MainGame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArkanoidScene" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAAAAAAAAQAAAAAQAAAAABABAAQAAAAAA=</HashCode>
+      <FileName>ArkanoidScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AvoidScene" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAAAAAAAAAAAAAAQAAAAAIARAAAAAAAAA=</HashCode>
+      <FileName>AvoidScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CollisionScene" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACgAAAAAAAAAAAAAAAAAEwBAAJABIQAAAAA=</HashCode>
+      <FileName>CollisionScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FortressScene" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAIAAAAAABAQAAAAAAABAAAABAAAA=</HashCode>
+      <FileName>FortressScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImageScene" Collapsed="true">
+    <Position X="15" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAIAAAAAAAAAAAAAABAAAgAAAAIBgAAAABAAA=</HashCode>
+      <FileName>ImageScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PaintScene" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAAIABAAAAAEAACAAAARgBEgCAAhQAAFCAAAI=</HashCode>
+      <FileName>PaintScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootingScene" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAAAAAAACAABAAAAAQAAIAAAAAABABAgAAAAAAA=</HashCode>
+      <FileName>ShootingScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureScene" Collapsed="true">
+    <Position X="17" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAAAAAAAAAAAAAAAAAAAkAABgAAAAAAUA=</HashCode>
+      <FileName>TextureScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Circle" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAACAgAAAAAAAAQAIAAAAiIAAAACBCAAAAAAAA=</HashCode>
+      <FileName>Circle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Line" Collapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAACAAAAAAAgAAAAAAAAAAAAAAAAABAAAAABAAA=</HashCode>
+      <FileName>Line.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rect" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAgAAAAIAQAIAAACCIAAAACBCAAAAAAAA=</HashCode>
+      <FileName>Rect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Poo" Collapsed="true">
+    <Position X="26.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABAAAoAAAAAAAAgAAAAAAQCAAQAAABAAAAAAACA=</HashCode>
+      <FileName>Poo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CannonBall" Collapsed="true">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABgAAIAAIAAAEAAAABAAAQAEAQEAABAAAgBoAAE=</HashCode>
+      <FileName>CannonBall.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CannonBallManager" Collapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAACAAAAAAAAAAAAAAAAAAQAEAAQAABAAAAAAAAA=</HashCode>
+      <FileName>CannonBallManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tank" Collapsed="true">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAIRAYEAAEACAgAQAAQEEAQABAFAAAAAAAAA=</HashCode>
+      <FileName>Tank.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArkaBall" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAEBAAAKAAAQAAAAAAABQACRAAARAAABAAIhAIAAA=</HashCode>
+      <FileName>ArkaBall.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArkaBrick" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAACAAAQAAAAQAQBAABBAAAAA=</HashCode>
+      <FileName>ArkaBrick.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArkaBrickManager" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAAAAAAAAEAAAAAAAAAAAAAQAAgAAAABgAAABAAAA=</HashCode>
+      <FileName>ArkaBrickManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArkaPlayer" Collapsed="true">
+    <Position X="24.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABAQAIAAAAAAAAAAAAAAAQAAAQAAABAAAhAAAAA=</HashCode>
+      <FileName>ArkaPlayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_EBulletManager" Collapsed="true">
+    <Position X="10.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAQAAEIAAAAAAgAASAAAAAAAAABAAABAAAoCAAAA=</HashCode>
+      <FileName>Shooting_EBulletManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_Enemy" Collapsed="true">
+    <Position X="2" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAABAEAIAQYAAAFAEAFBAAEVABUwAIABBgBIAAEQA=</HashCode>
+      <FileName>Shooting_Enemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_EnemyBullet" Collapsed="true">
+    <Position X="5.75" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAQAEBAAAIAAIAAAEBAAABAAAUAEQwAAABAAAIAAAAA=</HashCode>
+      <FileName>Shooting_EnemyBullet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_EnemyManager" Collapsed="true">
+    <Position X="12" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQgAVAAAAAIBAEAAAAAAIAAEIAAAAABABAAAACYAAA=</HashCode>
+      <FileName>Shooting_EnemyManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_Missile" Collapsed="true">
+    <Position X="5.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BgQAAAAAAMAQQAABAAAIAAAAAEAAQAAIgBBAAAAAAQA=</HashCode>
+      <FileName>Shooting_Missile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_Saucer" Collapsed="true">
+    <Position X="0.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAgAAAAAAAAABEAA=</HashCode>
+      <FileName>Shooting_Saucer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_Soldier" Collapsed="true">
+    <Position X="3" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAEAAABAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Shooting_Soldier.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_PBulletManager" Collapsed="true">
+    <Position X="8.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAAAAAAAAAAAAAAAEAAAAABAAAgCBAAQ=</HashCode>
+      <FileName>Shooting_PBulletManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_Player" Collapsed="true">
+    <Position X="10.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAADAAAKAAYEABEQAAABAAEUCBgwAIABBAAIAAEQA=</HashCode>
+      <FileName>Shooting_Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_PlayerBullet" Collapsed="true">
+    <Position X="12" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABAACIIAIAAAEAAAABAAAQAEAwAAABAAAIAAAAA=</HashCode>
+      <FileName>Shooting_PlayerBullet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_Background" Collapsed="true">
+    <Position X="8.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAAAAAABAAAAAAAAEQQAAIAAgAAABAAAAQAAAA=</HashCode>
+      <FileName>Shooting_Background.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_Item" Collapsed="true">
+    <Position X="10.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgFAAAIAAIAAAEAEAABAAAYgBAwAAABAAAIAAEAA=</HashCode>
+      <FileName>Shooting_Item.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_ItemManager" Collapsed="true">
+    <Position X="12" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQQAAAgAAAAEAIgAAAAAAAAAAAAAAAAEBAAAAAAAAA=</HashCode>
+      <FileName>Shooting_ItemManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting_GameManager" Collapsed="true">
+    <Position X="8.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQQgCJAAmAIJAJAEkyIgACAAGiAAwABCJIAAgQKACY=</HashCode>
+      <FileName>Shooting_GameManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Time" Collapsed="true">
+    <Position X="23" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAgAQAAAAIAAAAAAFAAEAABAlAIAAAABAAAGAAAQA=</HashCode>
+      <FileName>Time.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture" Collapsed="true">
+    <Position X="21.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAgAAAAACAAAAAIgAgAAAAIBIAAAAAAAA=</HashCode>
+      <FileName>Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Data" Collapsed="true">
+    <Position X="19.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABABAACAAAAAAAAAAAI=</HashCode>
+      <FileName>PaintScene.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Point" Collapsed="true">
+    <Position X="21.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAQAAAAAAAABAAABgAAAAAAA=</HashCode>
+      <FileName>Point.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Vector2" Collapsed="true">
+    <Position X="23" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAEAAAAQBACAIAAAIAAADgAAAAAAA=</HashCode>
+      <FileName>Vector2.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Type" Collapsed="true">
+    <Position X="26.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAKAAAAAAAAAAAAEAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>PaintScene.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Color" Collapsed="true">
+    <Position X="19.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAABAAgAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>PaintScene.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EnemyType" Collapsed="true">
+    <Position X="21.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shooting_EnemyManager.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Weapon_State" Collapsed="true">
+    <Position X="19.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAQAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shooting_Player.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Spacebar_State" Collapsed="true">
+    <Position X="24.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAJAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Shooting_Player.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ItemType" Collapsed="true">
+    <Position X="23" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Shooting_Item.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

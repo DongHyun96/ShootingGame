@@ -14,6 +14,8 @@ MainGame::MainGame()
 
 	ReleaseDC(hWnd, hdc);
 
+	//SetFullScreen();
+
 	//scene = new PaintScene;
 	//scene = new CollisionScene;
 	//scene = new AvoidScene;
@@ -58,4 +60,14 @@ void MainGame::Render(HDC hdc)
 	(
 		hdc, 0, 0, WIN_WIDTH, WIN_HEIGHT, backDC, 0, 0, SRCCOPY
 	);
+}
+
+void MainGame::SetFullScreen()
+{
+	// Remove window borders and title bar
+	LONG_PTR style = GetWindowLongPtr(hWnd, GWL_STYLE);
+	SetWindowLongPtr(hWnd, GWL_STYLE, style & ~(WS_CAPTION | WS_THICKFRAME | WS_BORDER | WS_SYSMENU));
+
+	// Maximize the window to cover the entire screen
+	SetWindowPos(hWnd, NULL, 0, 0, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), SWP_FRAMECHANGED);
 }

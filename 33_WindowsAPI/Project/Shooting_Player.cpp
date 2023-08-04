@@ -204,7 +204,7 @@ void Shooting_Player::HandleTextureFrame()
 		else
 		{
 			curFrame.x = (curFrame.x == 6) ? curFrame.x :
-				(curFrame.x < 6) ? curFrame.x + 1 : curFrame.x - 1;
+						 (curFrame.x < 6)  ? curFrame.x + 1 : curFrame.x - 1;
 		}
 
 	}
@@ -259,3 +259,4 @@ void Shooting_Player::HandleWeaponTime()
 	}
 
 }
+

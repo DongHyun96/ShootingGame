@@ -12,6 +12,10 @@ public:
 	void Render(HDC hdc);	// 화면을 갱신하는 함수: WM_PAINT
 
 private:
+	
+	void SetFullScreen();
+
+private:
 
 	Scene* scene = nullptr;
 	

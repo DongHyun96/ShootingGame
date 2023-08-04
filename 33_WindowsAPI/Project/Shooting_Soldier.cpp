@@ -42,3 +42,4 @@ void Shooting_Soldier::HandleTextureFrame()
 		++curFrame.x %= 16;
 	}
 }
+
