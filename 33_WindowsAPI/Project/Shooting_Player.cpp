@@ -20,7 +20,6 @@ Shooting_Player::~Shooting_Player()
 	delete texture;
 	delete body;
 	delete bulletManager;
-
 }
 
 void Shooting_Player::Update()
